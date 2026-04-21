@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Intermediate build output
+books.txt
+
+# Word temporary files
+~$*.docx
