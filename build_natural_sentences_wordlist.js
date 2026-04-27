@@ -10,8 +10,8 @@ const NEGATIVE_WORDS = new Set([
 ]);
 
 async function buildWordlist() {
-  const inputPath = path.join(__dirname, "books.txt");
-  const outputPath = path.join(__dirname, "book_wordlist.tsv");
+  const inputPath = path.join(__dirname, "natural_sentences.txt");
+  const outputPath = path.join(__dirname, "natural_sentences_wordlist.tsv");
 
   const fileStream = fs.createReadStream(inputPath, { encoding: "utf-8" });
   const rl = readline.createInterface({ input: fileStream, crlfDelay: Infinity });
@@ -77,7 +77,7 @@ async function buildWordlist() {
   const tsvLines = sorted.map(([word, count]) => `${word}\t${count}`);
   fs.writeFileSync(outputPath, tsvLines.join("\n"), "utf-8");
 
-  console.log(`book_wordlist.tsv created successfully (${sorted.length} entries).`);
+  console.log(`natural_sentences_wordlist.tsv created successfully (${sorted.length} entries).`);
 }
 
 buildWordlist();
